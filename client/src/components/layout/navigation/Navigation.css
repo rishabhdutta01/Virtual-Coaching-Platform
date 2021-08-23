@@ -1,0 +1,38 @@
+
+.navbar{
+    box-shadow: 0 1px 8px rgba(116, 116, 116, 0.329);
+    border-bottom: 1px solid #ced4da!important;
+}
+
+.navbar a{
+    text-decoration:none;
+}
+
+.img-fit{
+    object-fit: cover;
+}
+
+@media (min-width: 767px) {
+
+    .border-top { 
+        border-top: 0px solid #ced4da!important;
+    }
+
+  
+}
+
+@media (max-width: 767px) {
+
+    .border-top { 
+        border-top: 1px solid #ced4da!important;
+    }
+
+    .padding-top {
+        padding-top:10px
+    } 
+
+    #basic-navbar-nav{
+        margin-top:10px
+    }
+
+}

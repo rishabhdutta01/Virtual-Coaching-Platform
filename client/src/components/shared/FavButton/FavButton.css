@@ -1,0 +1,13 @@
+.noFav-btn {
+  transition: all .4s;
+   width:20px;
+   height:auto;
+}
+
+.noFav-btn:hover {
+  transition: all .4s;
+}
+
+.alreadyFav-btn {
+  transition: all .4s;
+}
