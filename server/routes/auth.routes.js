@@ -6,7 +6,7 @@ const bcryptSalt = 10
 const User = require("../models/user.model")
 const { check, validationResult } = require('express-validator')
 
-
+//signup code - includes validation of email, username, password, role.
 router.post('/signup',
     [
         check('username').isLength({ min: 5 }).withMessage('Name should have min 5 characters.').custom(value => {
@@ -44,6 +44,7 @@ router.post('/signup',
             .catch(() => res.status(500).json({ message: 'Error saving user to DB. Please try again.' }))
     })
 
+//Login code - this code is hit when someone logins from client end.
 router.post('/login', (req, res, done) => {
     passport.authenticate('local', (err, theUser, failureDetails) => {
 
@@ -62,11 +63,13 @@ router.post('/login', (req, res, done) => {
     })(req, res, done)
 })
 
+//Logout code.
 router.post('/logout', (req, res) => {
     req.logout()
     res.status(200).json({ message: 'Log out success!' });
 })
 
+//Code to check if a user is authenticated or logged in.
 router.get('/loggedin', (req, res) => {
     console.log(req.isAuthenticated());
     return req.isAuthenticated() ? res.status(200).json(req.user) : res.status(403).json({message: 'Unauthorized'})

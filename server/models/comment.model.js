@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//Cmments model for courses
 const CommentSchema = new Schema({
 
     user: {

@@ -1,12 +1,13 @@
 const mongoose = require('mongoose')
 const Course = require('./../models/course.model')
+
 //DATABASE
-// mongoose.connect('mongodb://localhost/eLearning')
+//Enter your database connection string here.
 mongoose.connect("mongodb+srv://timz:pEj5toVxx4ZHLBsD@cluster0.zkdrf.mongodb.net/trainingPlatform?retryWrites=true&w=majority")
-//mongoose.connect(process.env.DB_REMOTE)
+
 Course.collection.drop()
 
-
+//Prepared these mock courses. Should be modified
 const courses = [
     {
         title: 'Angular',
@@ -36,6 +37,7 @@ const courses = [
 
 ]
 
+//Code to add courses to mongodb
 Course
     .create(courses)
     .then(allCoursesCreated => {

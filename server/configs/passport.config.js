@@ -7,6 +7,7 @@ const User = require('../models/user.model')
 const FileStore = require('session-file-store')(session);
 const uuid = require('uuid').v4
 
+//Using passport.js for session storage and authentication
 module.exports = app => {
 
     app.use(session({
@@ -20,6 +21,8 @@ module.exports = app => {
     }))
 
     passport.serializeUser((user, done) => done(null, user._id))
+
+    //Send user object.
     passport.deserializeUser((id, done) => {
         User.findById(id)
             .then(theUser => done(null, theUser))

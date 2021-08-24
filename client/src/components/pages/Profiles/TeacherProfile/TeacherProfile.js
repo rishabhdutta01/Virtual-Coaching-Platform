@@ -98,7 +98,7 @@ class TeacherProfile extends Component {
                   {this.props.teacherInfo && this.props.teacherInfo._id === this.state.teacher._id ?
                     <h3><strong>About me</strong></h3>
                     :
-                    <h3><strong>About the theacher</strong></h3>}
+                    <h3><strong>About the the teacher</strong></h3>}
 
                   <p>{this.state.teacher.description}</p>
                 </Col>
@@ -163,7 +163,7 @@ class TeacherProfile extends Component {
                     :
                     <Col className="cta">
                       <Row className="d-flex justify-content-between">
-                        <p className="mt-2 mb-0">This teacher hasn't created couerses yet.</p>
+                        <p className="mt-2 mb-0">This teacher hasn't created courses yet.</p>
                         <Link to='/courses' className="btn btn-success ">See more courses</Link>
                       </Row>
                     </Col>

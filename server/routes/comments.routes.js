@@ -3,7 +3,7 @@ const router = express.Router()
 const Comment = require('../models/comment.model');
 const { isLoggedIn, isValidId } = require('../middleware/custom-middleware')
 
-
+//Get comments by id
 router.get('/getCourseComments/:id', isValidId, (req, res) => {
     Comment
         .find({ course: req.params.id })
@@ -13,6 +13,7 @@ router.get('/getCourseComments/:id', isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//Post new comment
 router.post('/newComment', isLoggedIn, (req, res) => {
     Comment
         .create(req.body)
@@ -21,6 +22,7 @@ router.post('/newComment', isLoggedIn, (req, res) => {
 
 })
 
+//Edit a previous comment
 router.put('/editComment/:id', isLoggedIn, isValidId, (req, res) => {
     Comment
         .findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -29,6 +31,7 @@ router.put('/editComment/:id', isLoggedIn, isValidId, (req, res) => {
 
 })
 
+//Delete comment
 router.delete('/deleteComment/:id', isLoggedIn, isValidId, (req, res) => {
     Comment
         .findByIdAndDelete(req.params.id)
@@ -36,7 +39,5 @@ router.delete('/deleteComment/:id', isLoggedIn, isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 
 })
-
-
 
 module.exports = router;

@@ -5,7 +5,7 @@ const Teacher = require('../models/teacher.model')
 const Course = require('../models/course.model')
 const { isLoggedIn, isValidId } = require('../middleware/custom-middleware')
 
-
+//get all users
 router.get('/getAllUsers', isLoggedIn, (req, res) => {
     User
         .find()
@@ -13,6 +13,7 @@ router.get('/getAllUsers', isLoggedIn, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//get a user based on id
 router.get('/getOneUser/:id', isLoggedIn, isValidId, (req, res) => {
     User
         .findById(req.params.id)
@@ -20,6 +21,7 @@ router.get('/getOneUser/:id', isLoggedIn, isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//edit a specific used based on id
 router.put('/editUser/:id', isLoggedIn, isValidId, (req, res) => {
     User
         .findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -27,6 +29,7 @@ router.put('/editUser/:id', isLoggedIn, isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//delete a user based on id
 router.delete('/deleteUser/:id', isLoggedIn, isValidId, (req, res) => {
     const userId = req.params.id
     let teacherId 
@@ -46,7 +49,6 @@ router.delete('/deleteUser/:id', isLoggedIn, isValidId, (req, res) => {
 })
 
 // Manage Favorites
-
 router.put('/editUser/updateFavCourses/:id', isLoggedIn, isValidId, (req, res) => {
     User
         .findByIdAndUpdate(req.params.id, { favCourses: req.body }, { new: true })

@@ -108,7 +108,7 @@ class NewCourseForm extends Component {
                                                 <option>Choose one option</option>
                                                 <option value='All levels' >All levels</option>
                                                 <option value='Beginner' >Beginner</option>
-                                                <option value='Intermidiate' >Intermidiate</option>
+                                                <option value='Intermediate' >Intermediate</option>
                                                 <option value='Advanced' >Advanced</option>
                                             </Form.Control>
                                         </Form.Group>

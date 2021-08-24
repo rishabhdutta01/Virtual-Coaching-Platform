@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+//Courses schema - this schema can be changed to suit to your needs.
 const courseSchema = new Schema({
     imageUrl: {
         type: String,

@@ -67,7 +67,7 @@ class Signup extends Component {
                       value={this.state.username}
                       onChange={this.handleInputChange} />
                     <Form.Text id='passwordHelpBlock' muted>
-                      Your unsername must have more than 5 characters
+                      The number of characters in username should be more than 5 characters.
                       </Form.Text>
                   </Form.Group>
 
@@ -81,7 +81,7 @@ class Signup extends Component {
                       value={this.state.password}
                       onChange={this.handleInputChange} />
                     <Form.Text id='passwordHelpBlock' muted>
-                      Your password must have more than 4 characters and contain a number
+                      The number of characters in password should be more than 4 characters and password should contain a number.
                       </Form.Text>
                   </Form.Group>
 
@@ -99,7 +99,7 @@ class Signup extends Component {
                   <Form.Group controlId='role'>
                     <Form.Label>Choose role</Form.Label>
                     <Form.Control as='select' name='role' value={this.state.role} onChange={this.handleInputChange}>
-                      <option>Which's your role?</option>
+                      <option>Mention your role?</option>
                       <option value='Student' >Student</option>
                       <option value='Teacher' >Teacher</option>
                     </Form.Control>

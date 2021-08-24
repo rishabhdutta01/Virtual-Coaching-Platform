@@ -119,7 +119,7 @@ class EditTeacherForm extends Component {
                                 </Tabs>
 
                                 <Form.Group>
-                                    <Form.Label>Imagen (file: jpg or png) {this.state.uploadingActive && <Loader />}</Form.Label>
+                                    <Form.Label>Image (file: jpg or png) {this.state.uploadingActive && <Loader />}</Form.Label>
                                     <Form.Control type="file" onChange={this.handleImageUpload} />
                                 </Form.Group>
 

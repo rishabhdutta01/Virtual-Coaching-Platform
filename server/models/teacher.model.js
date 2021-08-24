@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+//Teacher schema for the courses
 const teacherSchema = new Schema({
     name: {
         type: String,

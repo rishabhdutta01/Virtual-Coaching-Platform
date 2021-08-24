@@ -5,7 +5,7 @@ const Course = require('../models/course.model')
 const { check, validationResult } = require('express-validator')
 const { isLoggedIn, isTeacher, isValidId } = require('../middleware/custom-middleware')
 
-
+//get all teachers
 router.get('/getAllTeachers', (req, res) => {
     Teacher
         .find()
@@ -13,6 +13,7 @@ router.get('/getAllTeachers', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//get a specific teacher based on id
 router.get('/getTheTeacher/:id', isValidId, (req, res) => {
     Teacher
         .findById(req.params.id)
@@ -20,6 +21,7 @@ router.get('/getTheTeacher/:id', isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//get a specific teacher based on id
 router.get('/getOneTeacher/:id', isValidId, (req, res) => {
     Teacher
         .find({ user: req.params.id })
@@ -27,6 +29,7 @@ router.get('/getOneTeacher/:id', isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//add new teacher
 router.post('/newTeacher', isLoggedIn,
     [
         check('name').isLength({ min: 3 }).withMessage('Name should have min 3 characters.').custom(value => {
@@ -55,6 +58,7 @@ router.post('/newTeacher', isLoggedIn,
         .catch(err => res.status(500).json(err))
 })
 
+//edit a teacher based on id
 router.put('/editTeacher/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
     Teacher
         .findByIdAndUpdate(req.params.id, req.body, { new: true })
@@ -62,6 +66,7 @@ router.put('/editTeacher/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//delete a teacher based on id
 router.delete('/deleteTeacher/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
     const teacher_Id = req.params.id 
     Course
@@ -70,6 +75,5 @@ router.delete('/deleteTeacher/:id', isLoggedIn, isTeacher, isValidId, (req, res)
         .then(() => res.json({ message: 'Teacher Deleted' }))
         .catch(err => res.status(500).json(err))
 })
-
 
 module.exports = router

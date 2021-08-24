@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+//Helper functions needed by the app.js file
 module.exports = {
   isLoggedIn: (req, res, next) => req.isAuthenticated() ? next() : res.status(403).json({ message: 'Log in to access' }),
   isTeacher: (req, res, next) => req.user.role === 'Teacher' ? next() : res.status(403).json({ message: 'Unauthorized' }),

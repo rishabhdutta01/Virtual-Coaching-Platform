@@ -98,6 +98,7 @@ class App extends Component {
         <main>
           <AnimatePresence>
             <Switch>
+              {/*Routing paths*/}
               <Route exact path="/" render={props => <Home {...props} handleToast={this.handleToast} />} />
               <Route exact path="/courses" render={props => <CoursesList {...props} loggedUser={this.state.loggedInUser} teacherInfo={this.state.teacher} updateFavCourses={this.updateFavCourses} handleToast={this.handleToast} />} />
               <Route path="/courses/:course_id" render={props => <CourseDetails {...props} handleToast={this.handleToast} teacherInfo={this.state.teacher} loggedUser={this.state.loggedInUser} />} />

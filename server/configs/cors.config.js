@@ -10,6 +10,7 @@ const cors = require('cors')
 //     credentials: true
 // }
 
+//Allowing all clients to hit the server.
 const corsOptions ={ origin:'*', credentials:true}
 
 

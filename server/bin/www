@@ -9,6 +9,7 @@ let app = require('../app');
 //   res.status(404).json({ message: 'Not found' });
 // });
 
+//Defining error templates
 app.use((err, req, res, next) => {
   // always log the error
   console.error('ERROR', req.method, req.path, err);

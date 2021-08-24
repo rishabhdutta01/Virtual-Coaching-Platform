@@ -12,6 +12,7 @@ router.get('/sampleCourses', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//Get all courses.
 router.get('/getAllCourses', (req, res) => {
     Course
         .find()
@@ -20,6 +21,7 @@ router.get('/getAllCourses', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//Get courses of a particular teacher.
 router.get('/getTeacherCourses/:id', isValidId, (req, res) => {
     Course
         .find({ owner: req.params.id })
@@ -27,6 +29,7 @@ router.get('/getTeacherCourses/:id', isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//Get a course based on id.
 router.get('/getOneCourse/:id', isValidId, (req, res) => {
     Course
         .findById(req.params.id)
@@ -35,6 +38,7 @@ router.get('/getOneCourse/:id', isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//Add a new course after subject to validations.
 router.post('/newCourse', isLoggedIn, isTeacher,
     [
         check('title').isLength({ min: 10 }).withMessage('Title should have min 10 characters.').custom(value => {
@@ -90,6 +94,7 @@ router.post('/newCourse', isLoggedIn, isTeacher,
         .catch(err => res.status(500).json(err))
 })
 
+//Edit a course based on id
 router.put('/editCourse/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
     const { imageUrl, title, lead, category, difficultyLevel, description, whatYouWillLearn, price, videos, requirements, duration, owner } = req.body
 
@@ -116,6 +121,7 @@ router.put('/editCourse/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+//delete many courses
 router.delete('/deleteTeacherCourses/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
     Course
         .deleteMany({ owner: req.params.id })
@@ -123,6 +129,7 @@ router.delete('/deleteTeacherCourses/:id', isLoggedIn, isTeacher, isValidId, (re
         .catch(err => res.status(500).json(err))
 })
 
+//delete a course based on id
 router.delete('/deleteCourse/:id', isLoggedIn, isTeacher, isValidId, (req, res) => {
     Course
         .findByIdAndDelete(req.params.id)

@@ -123,7 +123,7 @@ class EditCourseForm extends Component {
                                                 <option>Choose one option</option>
                                                 <option value='All levels'>All levels</option>
                                                 <option value='Beginner'>Beginner</option>
-                                                <option value='Intermidiate'>Intermidiate</option>
+                                                <option value='Intermediate'>Intermediate</option>
                                                 <option value='Advanced'>Advanced</option>
                                             </Form.Control>
                                         </Form.Group>
@@ -161,7 +161,7 @@ class EditCourseForm extends Component {
                                 </Form.Group>
 
                                 <Form.Group>
-                                    <Form.Label>Imagen (file: jpg or png) {this.state.uploadingActive && <Loader />}</Form.Label>
+                                    <Form.Label>Image (file: jpg or png) {this.state.uploadingActive && <Loader />}</Form.Label>
                                     <Form.Control type="file" onChange={this.handleImageUpload} />
                                 </Form.Group>
 

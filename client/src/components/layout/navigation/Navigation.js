@@ -19,6 +19,7 @@ class Navigation extends Component {
     }
 
     logOut = () => {
+        //perform logout operation
         this.authService
             .logout()
             .then(() => {
@@ -64,6 +65,7 @@ class Navigation extends Component {
                                 <Nav.Link as="div">Teachers</Nav.Link>
                             </Link>
                             {
+                                //If user logged in then display user's name.
                                 this.props.loggedUser
                                     ?
                                     <>
